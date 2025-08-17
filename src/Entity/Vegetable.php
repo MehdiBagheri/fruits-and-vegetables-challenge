@@ -21,7 +21,7 @@ final class Vegetable
     #[Assert\NotNull]
     private string $name;
 
-    #[ORM\Column(name: 'quantity_as_gram', type: Types::INTEGER)]
+    #[ORM\Column(name: 'quantity_in_gram', type: Types::INTEGER)]
     #[Assert\NotNull]
     private int $quantity;
 
