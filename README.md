@@ -1,6 +1,6 @@
 # 🍎🥕 Fruits and Vegetables
 
-## Requirements
+## 🐘 🎼 Requirements
 * PHP >=8.2
 * Symfony cli
 * Composer
@@ -18,7 +18,7 @@ We want to build a service which will take a `request.json` and:
     * how to implement `search()` method collections;
     * use latest version of Symfony's to embed your logic 
 
-## Implemented
+## ⚙️ Implemented
 * [x] ArrayCollection is added to process the request.json
   * Collection is immutable, which provides the following methods:
     * `getIterator()`
@@ -46,3 +46,58 @@ We want to build a service which will take a `request.json` and:
     * `api/v1/vegetables?unit=kg`: Will return a list of the vegetables with unit in kilograms.
     * `POST`:
       * `api/v1/vegetables`: Will create vegetable and return the created vegetable.
+
+## 🔧 Setup project
+* Download the project e.g. `git clone git@github.com:MehdiBagheri/fruits-and-vegetables-challenge.git`
+* inside the project folder run the following commands:
+   * Install packages
+     ```bash
+     composer install
+     ```
+   * DB migration
+     ```bash
+     php bin/console doctrine:migrations:migrate
+     ``` 
+   * Import request.json for test data
+     ```bash
+     php bin/console doctrine:fixtures:load
+     ```  
+   * Start the server
+     ```bash
+     symfony server:start
+     ```  
+     
+## 🔎 Automated Testing
+```
+./bin/phpunit
+```
+
+## ✅  Endpoint usage
+* `GET`
+  * `http://127.0.0.1:8000/api/v1/fruits`
+  * `http://127.0.0.1:8000/api/v1/fruits?filter=apple`
+  * `http://127.0.0.1:8000/api/v1/fruits?filter=apple&unit=kg`
+  * `http://127.0.0.1:8000/api/v1/fruits?unit=kg`
+  * `http://127.0.0.1:8000/api/v1/vegetables`
+  * `http://127.0.0.1:8000/api/v1/vegetables?filter=carrot`
+  * `http://127.0.0.1:8000/api/v1/vegetables?filter=carrot&unit=kg`
+  * `http://127.0.0.1:8000/api/v1/vegetables?unit=kg` 
+* `POST`
+    ```bash
+  curl -X POST http://localhost:8000/fruits \
+    -H "Content-Type: application/json" \
+    -d '{
+      "name": "Orange",
+      "quantity": 1,
+      "unit": "kg"
+    }'
+  ``` 
+  ```bash
+  curl -X POST http://localhost:8000/vegetables \
+    -H "Content-Type: application/json" \
+    -d '{
+      "name": "Broccoli",
+      "quantity": 1,
+      "unit": "kg"
+    }'
+  ```
