@@ -4,18 +4,16 @@ declare(strict_types=1);
 
 namespace App\Tests\Integration;
 
-use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\Tools\SchemaTool;
+use App\Tests\Trait\InitTestDatabaseTrait;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 abstract class IntegrationTestCase extends KernelTestCase
 {
-    protected EntityManagerInterface $entityManager;
+    use InitTestDatabaseTrait;
 
     protected function setUp(): void
     {
         self::bootKernel();
-        $this->entityManager = self::getContainer()->get(EntityManagerInterface::class);
         $this->createDatabase();
     }
 
@@ -23,12 +21,5 @@ abstract class IntegrationTestCase extends KernelTestCase
     {
         parent::tearDown();
         $this->entityManager->close();
-    }
-
-    private function createDatabase(): void
-    {
-        $schemaTool = new SchemaTool($this->entityManager);
-        $metadata = $this->entityManager->getMetadataFactory()->getAllMetadata();
-        $schemaTool->updateSchema($metadata);
     }
 }
