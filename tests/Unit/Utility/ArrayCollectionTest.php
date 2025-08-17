@@ -70,4 +70,53 @@ final class ArrayCollectionTest extends TestCase
 
         $this->assertSame($array, $collection->list());
     }
+
+    #[Test]
+    public function shouldSearchWithCallback(): void
+    {
+        $collection = new ArrayCollection([1, 2, 3, 4, 5]);
+
+        $result = $collection->search(fn ($item) => $item > 3);
+
+        $this->assertEquals([4, 5], array_values($result->list()));
+        $this->assertEquals(2, $result->count());
+    }
+
+    #[Test]
+    public function shouldHandleSearchOnEmptyCollection(): void
+    {
+        $collection = new ArrayCollection([]);
+
+        $result = $collection->search(fn ($item) => true);
+
+        $this->assertEquals(new ArrayCollection([]), $result);
+        $this->assertTrue(0 === $result->count());
+    }
+
+    #[Test]
+    public function shouldSearchImmutable(): void
+    {
+        $collection = new ArrayCollection([1, 2, 3, 4, 5]);
+
+        $result = $collection->search(fn ($item) => $item > 3);
+
+        $this->assertTrue(5 === $collection->count()); // Original unchanged
+        $this->assertTrue(2 === $result->count());     // New collection
+        $this->assertNotSame($collection, $result);
+    }
+
+    #[Test]
+    public function shouldSearchObjectsByProperty(): void
+    {
+        $fruits = [
+            (object) ['name' => 'apple', 'quantity' => 100],
+            (object) ['name' => 'banana', 'quantity' => 200],
+            (object) ['name' => 'orange', 'quantity' => 150],
+        ];
+        $collection = new ArrayCollection($fruits);
+
+        $result = $collection->search(fn ($fruit) => $fruit->quantity > 120);
+
+        $this->assertTrue(2 === $result->count());
+    }
 }

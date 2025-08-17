@@ -76,6 +76,14 @@ final readonly class ArrayCollection implements \IteratorAggregate, \Countable
     }
 
     /**
+     * @return self<TKey, TValue>
+     */
+    public function search(callable $callback): self
+    {
+        return $this->createFrom(array_filter($this->elements, $callback));
+    }
+
+    /**
      * @param array<TKey, TValue> $elements
      *
      * @return self<TKey, TValue>

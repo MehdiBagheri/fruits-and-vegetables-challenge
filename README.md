@@ -27,6 +27,7 @@ We want to build a service which will take a `request.json` and:
     * `remove(key)`
     * `list()`
     * `reduce(callback, initialValue)`
+    * `search(callback)`
     * `count()`
 * [x] The file `requst.json` is processed and the collections are created and are persisted in the storage engine.(sqlite)
 * [x] API endpoints
