@@ -49,7 +49,10 @@ We want to build a service which will take a `request.json` and:
       * `api/v1/vegetables`: Will create vegetable and return the created vegetable.
 
 ## 🔧 Setup project
-* Download the project e.g. `git clone git@github.com:MehdiBagheri/fruits-and-vegetables-challenge.git`
+* Download the project 
+  ```bash
+   git clone git@github.com:MehdiBagheri/fruits-and-vegetables-challenge.git
+  ```
 * inside the project folder run the following commands:
    * Install packages
      ```bash
