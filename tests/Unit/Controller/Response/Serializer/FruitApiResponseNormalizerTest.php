@@ -11,7 +11,7 @@ use App\Enum\Unit;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
-class FruitApiResponseNormalizerTest extends TestCase
+final class FruitApiResponseNormalizerTest extends TestCase
 {
     #[Test]
     public function shouldNormalizeFruitWithDefaultGramUnit(): void

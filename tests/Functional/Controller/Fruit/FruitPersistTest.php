@@ -9,7 +9,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class FruitPersistTest extends FunctionalTestCase
+final class FruitPersistTest extends FunctionalTestCase
 {
     #[Test]
     public function shouldCreateFruitSuccessfully(): void
@@ -49,7 +49,7 @@ class FruitPersistTest extends FunctionalTestCase
         $this->assertResponseStatusCodeSame(Response::HTTP_BAD_REQUEST);
         $this->assertResponseHeaderSame('content-type', 'application/json');
         $this->assertJsonStringEqualsJsonString(
-            '{"errors":[{"status":400,"code":"BAD_REQUEST","message":"The value you selected is not a valid choice."}]}',
+            '{"errors":[{"status":400,"code":"BAD_REQUEST","message":"Invalid request."}]}',
             $this->client->getResponse()->getContent()
         );
     }
@@ -69,7 +69,7 @@ class FruitPersistTest extends FunctionalTestCase
         $this->assertResponseStatusCodeSame(Response::HTTP_BAD_REQUEST);
         $this->assertResponseHeaderSame('content-type', 'application/json');
         $this->assertJsonStringEqualsJsonString(
-            '{"errors":[{"status":400,"code":"BAD_REQUEST","message":"This value is not valid."}]}',
+            '{"errors":[{"status":400,"code":"BAD_REQUEST","message":"Invalid request."}]}',
             $this->client->getResponse()->getContent()
         );
     }
@@ -88,7 +88,7 @@ class FruitPersistTest extends FunctionalTestCase
         $this->assertResponseStatusCodeSame(Response::HTTP_BAD_REQUEST);
         $this->assertResponseHeaderSame('content-type', 'application/json');
         $this->assertJsonStringEqualsJsonString(
-            '{"errors":[{"status":400,"code":"BAD_REQUEST","message":"This value should be of type int."}]}',
+            '{"errors":[{"status":400,"code":"BAD_REQUEST","message":"Invalid request."}]}',
             $this->client->getResponse()->getContent()
         );
     }

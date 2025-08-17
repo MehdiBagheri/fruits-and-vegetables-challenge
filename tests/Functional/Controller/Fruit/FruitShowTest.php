@@ -9,7 +9,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class FruitShowTest extends FunctionalTestCase
+final class FruitShowTest extends FunctionalTestCase
 {
     use CreateTestFruitTrait;
 

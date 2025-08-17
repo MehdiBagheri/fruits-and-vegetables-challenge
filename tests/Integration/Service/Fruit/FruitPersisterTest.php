@@ -10,7 +10,7 @@ use App\Service\Fruit\FruitPersister;
 use App\Tests\Integration\IntegrationTestCase;
 use PHPUnit\Framework\Attributes\Test;
 
-class FruitPersisterTest extends IntegrationTestCase
+final class FruitPersisterTest extends IntegrationTestCase
 {
     #[Test]
     public function shouldPersistFruitWithGramUnit(): void

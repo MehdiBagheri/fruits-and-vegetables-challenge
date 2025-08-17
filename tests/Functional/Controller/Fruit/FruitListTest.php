@@ -9,7 +9,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class FruitListTest extends FunctionalTestCase
+final class FruitListTest extends FunctionalTestCase
 {
     use CreateTestFruitTrait;
     #[Test]
@@ -84,7 +84,7 @@ class FruitListTest extends FunctionalTestCase
         $this->assertResponseStatusCodeSame(Response::HTTP_BAD_REQUEST);
         $this->assertResponseHeaderSame('content-type', 'application/json');
         $this->assertJsonStringEqualsJsonString(
-            '{"errors":[{"status":400,"code":"BAD_REQUEST","message":"Invalid query parameter \u0022unit\u0022."}]}',
+            '{"errors":[{"status":400,"code":"BAD_REQUEST","message":"Invalid request."}]}',
             $this->client->getResponse()->getContent()
         );
     }

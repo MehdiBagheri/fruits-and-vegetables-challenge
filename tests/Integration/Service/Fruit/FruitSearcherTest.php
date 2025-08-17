@@ -9,7 +9,7 @@ use App\Service\Fruit\FruitSearcher;
 use App\Tests\Integration\IntegrationTestCase;
 use PHPUnit\Framework\Attributes\Test;
 
-class FruitSearcherTest extends IntegrationTestCase
+final class FruitSearcherTest extends IntegrationTestCase
 {
     #[Test]
     public function shouldReturnEmptyArrayWhenNoFruits(): void
