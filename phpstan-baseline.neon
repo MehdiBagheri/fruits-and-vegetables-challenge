@@ -1,0 +1,157 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Parameter \#1 \$environment of class App\\Kernel constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: public/index.php
+
+		-
+			message: '#^Method App\\ProduceRequest\\Dto\\ProduceRequest\:\:__construct\(\) has parameter \$fruits with generic class App\\Utility\\ArrayCollection but does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/ProduceRequest/Dto/ProduceRequest.php
+
+		-
+			message: '#^Method App\\ProduceRequest\\Dto\\ProduceRequest\:\:__construct\(\) has parameter \$vegetables with generic class App\\Utility\\ArrayCollection but does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/ProduceRequest/Dto/ProduceRequest.php
+
+		-
+			message: '#^Method App\\ProduceRequest\\Dto\\ProduceRequest\:\:all\(\) return type with generic class App\\Utility\\ArrayCollection does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/ProduceRequest/Dto/ProduceRequest.php
+
+		-
+			message: '#^PHPDoc tag @extends contains generic type App\\ProduceRequest\\Factory\\ProduceFactory\<App\\Entity\\Fruit\> but class App\\ProduceRequest\\Factory\\ProduceFactory is not generic\.$#'
+			identifier: generics.notGeneric
+			count: 1
+			path: src/ProduceRequest/Factory/FruitFactory.php
+
+		-
+			message: '#^Method App\\ProduceRequest\\Factory\\ProduceFactory\:\:create\(\) has parameter \$data with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ProduceRequest/Factory/ProduceFactory.php
+
+		-
+			message: '#^PHPDoc tag @extends contains generic type App\\ProduceRequest\\Factory\\ProduceFactory\<App\\Entity\\Vegetable\> but class App\\ProduceRequest\\Factory\\ProduceFactory is not generic\.$#'
+			identifier: generics.notGeneric
+			count: 1
+			path: src/ProduceRequest/Factory/VegetableFactory.php
+
+		-
+			message: '#^Cannot access an offset on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: src/ProduceRequest/ProduceRequestParser.php
+
+		-
+			message: '#^Method App\\ProduceRequest\\ProduceRequestParser\:\:__construct\(\) has parameter \$fruitFactory with generic class App\\ProduceRequest\\Factory\\FruitFactory but does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/ProduceRequest/ProduceRequestParser.php
+
+		-
+			message: '#^Method App\\ProduceRequest\\ProduceRequestParser\:\:__construct\(\) has parameter \$vegetableFactory with generic class App\\ProduceRequest\\Factory\\VegetableFactory but does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/ProduceRequest/ProduceRequestParser.php
+
+		-
+			message: '#^Method App\\ProduceRequest\\ProduceRequestParser\:\:decodeJson\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ProduceRequest/ProduceRequestParser.php
+
+		-
+			message: '#^Method App\\ProduceRequest\\ProduceRequestParser\:\:processCollection\(\) has parameter \$produce with generic class App\\Utility\\ArrayCollection but does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/ProduceRequest/ProduceRequestParser.php
+
+		-
+			message: '#^Method App\\ProduceRequest\\ProduceRequestParser\:\:processCollection\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ProduceRequest/ProduceRequestParser.php
+
+		-
+			message: '#^Parameter \#1 \$elements of class App\\Utility\\ArrayCollection constructor expects array\<TKey of \(int\|string\), TValue\>, mixed given\.$#'
+			identifier: argument.type
+			count: 2
+			path: src/ProduceRequest/ProduceRequestParser.php
+
+		-
+			message: '#^Method App\\ProduceRequest\\ProduceRequestProcessor\:\:__construct\(\) has parameter \$produceRequestParser with generic class App\\ProduceRequest\\ProduceRequestParser but does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/ProduceRequest/ProduceRequestProcessor.php
+
+		-
+			message: '#^Parameter \#1 \$object of method Doctrine\\Persistence\\ObjectManager\:\:persist\(\) expects object, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ProduceRequest/ProduceRequestProcessor.php
+
+		-
+			message: '#^Match arm comparison between ''Symfony\\\\Component…'' and ''Symfony\\\\Component\\\\Validator\\\\Constraints\\\\Choice'' is always true\.$#'
+			identifier: match.alwaysTrue
+			count: 1
+			path: src/ProduceRequest/ProduceSchemaValidator.php
+
+		-
+			message: '#^Method App\\ProduceRequest\\ProduceSchemaValidator\:\:buildConstraintsForItem\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ProduceRequest/ProduceSchemaValidator.php
+
+		-
+			message: '#^Method App\\ProduceRequest\\ProduceSchemaValidator\:\:validate\(\) has parameter \$data with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ProduceRequest/ProduceSchemaValidator.php
+
+		-
+			message: '#^Offset ''max'' might not exist on ''integer''\|''string''\|array\{''kg'', ''g''\}\|array\{''vegetable'', ''fruit''\}\|array\{min\: 1, max\: 100\}\|array\{pattern\: ''/\^\[a\-zA\-Z\\\\s\]\+\$/''\}\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: src/ProduceRequest/ProduceSchemaValidator.php
+
+		-
+			message: '#^Offset ''min'' might not exist on ''integer''\|''string''\|array\{''kg'', ''g''\}\|array\{''vegetable'', ''fruit''\}\|array\{min\: 1, max\: 100\}\|array\{pattern\: ''/\^\[a\-zA\-Z\\\\s\]\+\$/''\}\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: src/ProduceRequest/ProduceSchemaValidator.php
+
+		-
+			message: '#^Offset ''pattern'' might not exist on ''integer''\|''string''\|array\{''kg'', ''g''\}\|array\{''vegetable'', ''fruit''\}\|array\{min\: 1, max\: 100\}\|array\{pattern\: ''/\^\[a\-zA\-Z\\\\s\]\+\$/''\}\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: src/ProduceRequest/ProduceSchemaValidator.php
+
+		-
+			message: '#^Parameter \$choices of class Symfony\\Component\\Validator\\Constraints\\Choice constructor expects array\|null, array\<int\|string, int\|string\>\|string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ProduceRequest/ProduceSchemaValidator.php
+
+		-
+			message: '#^Parameter \$fields of class Symfony\\Component\\Validator\\Constraints\\Collection constructor expects array\<string, mixed\>\|null, array given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ProduceRequest/ProduceSchemaValidator.php
+
+		-
+			message: '#^Method App\\Utility\\ArrayCollection\:\:reduce\(\) should return App\\Utility\\ArrayCollection\<TKey of \(int\|string\), TValue\> but returns App\\Utility\\ArrayCollection\<\(int\|string\), mixed\>\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Utility/ArrayCollection.php
+
+		-
+			message: '#^Parameter \#1 \$elements of class App\\Utility\\ArrayCollection constructor expects array\<TKey of \(int\|string\), TValue\>, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Utility/ArrayCollection.php

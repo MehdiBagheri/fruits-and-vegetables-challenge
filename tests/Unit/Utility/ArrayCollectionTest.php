@@ -52,6 +52,17 @@ final class ArrayCollectionTest extends TestCase
     }
 
     #[Test]
+    public function shouldApplyReduceOnCollection(): void
+    {
+        $collection = new ArrayCollection([[1, 2], [3, 4]]);
+
+        $result = $collection->reduce(function ($carry, $item) {
+            return array_merge($carry, $item);
+        }, []);
+        $this->assertEquals(new ArrayCollection([1, 2, 3, 4]), $result);
+    }
+
+    #[Test]
     public function shouldReturnArray(): void
     {
         $array = [1, 2, 3, 4];
