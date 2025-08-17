@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Controller\Request\VegetableDto;
 use App\Controller\Response\Serializer\ApiResponseSerializer;
+use App\Entity\Vegetable;
 use App\Enum\Unit;
 use App\Service\Vegetable\VegetablePersister;
 use App\Service\Vegetable\VegetableSearcher;
@@ -43,5 +44,13 @@ final class VegetableController
         $vegetable = $vegetablePersister->persist($vegetableDto);
 
         return JsonResponse::fromJsonString($this->serializer->serialize($vegetable), Response::HTTP_CREATED);
+    }
+
+    #[Route(path: '/vegetables/{id}', name: 'vegetable_show', methods: ['GET'])]
+    public function retrieve(
+        Vegetable $vegetable,
+        #[MapQueryParameter(validationFailedStatusCode: Response::HTTP_BAD_REQUEST)] Unit $unit = Unit::GRAM,
+    ): JsonResponse {
+        return JsonResponse::fromJsonString($this->serializer->serialize($vegetable, $unit), Response::HTTP_OK);
     }
 }
