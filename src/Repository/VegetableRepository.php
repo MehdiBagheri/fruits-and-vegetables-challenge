@@ -15,4 +15,17 @@ final class VegetableRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Vegetable::class);
     }
+
+    /**
+     * Find fruits by partial name match (case-insensitive).
+     */
+    public function findByName(string $name): array
+    {
+        return $this->createQueryBuilder('vegetable')
+                    ->where('LOWER(vegetable.name) LIKE CONCAT(\'%\', LOWER(:name), \'%\')')
+                    ->setParameter('name', $name)
+                    ->orderBy('vegetable.name', 'ASC')
+                    ->getQuery()
+                    ->getResult();
+    }
 }
